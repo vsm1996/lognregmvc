@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Page Title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- Optional theme --> 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    </head>
+
+    <body>
+        <div class="container">
+            {% with errors = get_flashed_messages(category_filter=["login"]) %}
+            {% if errors %}
+                {% for msg in errors %}
+                <p class="error">{{ msg }}</p>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+        
+            <p> Welcome {{name}}!!</p>
+
+
+            <form action="/logout" method="GET">
+                <input type="submit" value="Logout"/>
+            </form>
+        </div>
+            
+    </body>
+</html>
